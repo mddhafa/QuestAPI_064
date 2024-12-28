@@ -1,7 +1,9 @@
 package com.example.remotedatabase.ui.viewmodel
 
 
-
+data class InsertUiState(
+    val insertUiEvent: InsertUiEvent = InsertUiEvent()
+)
 
 data class InsertUiEvent(
     val nim: String= "",
