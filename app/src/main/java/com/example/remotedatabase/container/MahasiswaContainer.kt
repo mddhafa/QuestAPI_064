@@ -1,4 +1,4 @@
-package com.example.remotedatabase.ui.theme.container
+package com.example.remotedatabase.container
 
 import MahasiswaService
 import com.example.remotedatabase.repository.MahasiswaRepository
@@ -8,13 +8,13 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
 
-interface AppContainer{
-    val kontakRepository: MahasiswaRepository
+interface AppContainer {
+    val mahasiswaRepository: MahasiswaRepository
 }
 
-class MahasiswaContainer : AppContainer{
+class MahasiswaContainer : AppContainer {
 
-    private val baseUrl = "http://localhost/umyTI/"
+    private val baseUrl = "http://10.0.2.2:80/umyTI/"
     private val json = Json { ignoreUnknownKeys = true }
     private val retrofit: Retrofit = Retrofit.Builder()
         .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
@@ -24,7 +24,7 @@ class MahasiswaContainer : AppContainer{
         retrofit.create(MahasiswaService::class.java)
     }
 
-    override val kontakRepository: MahasiswaRepository by lazy {
+    override val mahasiswaRepository: MahasiswaRepository by lazy {
         NetworkMahasiswaRepository(mahasiswaService)
     }
 }

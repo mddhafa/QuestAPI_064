@@ -1,8 +1,8 @@
 package com.example.remotedatabase
 
 import android.app.Application
-import com.example.remotedatabase.ui.theme.container.AppContainer
-import com.example.remotedatabase.ui.theme.container.MahasiswaContainer
+import com.example.remotedatabase.container.AppContainer
+import com.example.remotedatabase.container.MahasiswaContainer
 
 class MahasiswaApplications: Application(){
     lateinit var container: AppContainer
